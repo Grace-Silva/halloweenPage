@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root{
-    --orange: #FF7600;
-    --yellow: #FFA900;
+    --blue: #030637;
+    --violet: #3C0753;
+    --purple: #720455;
     --fucsia: #CD113B;
-    --violet: #52006A;
+    --pink: #910A67;
     --white: #F3F8FF;
+    --miniGradient: linear-gradient(45deg, rgba(205,17,59,1) 0%, rgba(145,10,103,1) 100%);
+    --dropShadow: 2px 2px 8px rgba(0,0,0,.2);
 }
 
 html{
@@ -19,60 +22,206 @@ html{
     font-family: "Montserrat", sans-serif;
     text-decoration: none;
     list-style: none;
+    overflow-x: hidden;
 }
 
 body{
-    background: rgb(255,118,0);
-    background: linear-gradient(90deg, rgba(255,118,0,1) 0%, rgba(235,162,99,1) 25%, rgba(235,162,99,0.8) 50%, rgba(235,162,99,1) 75%, rgba(255,118,0,1) 100%);  
+    background: rgb(60,7,83);
+    background: linear-gradient(90deg, rgba(60,7,83,1) 0%, rgba(114,4,85,1) 75%); 
     color: var(--white);
+    position: relative;
+    min-height: 100vh;
 }
 
 .header{
+    position: relative;
+    width: 100%;
 }
 
 .header .navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1em;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.1);
+    width: 100%;
 }
+
 
 .header .navbar .logo{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 8px;
     width: fit-content;
     color: var(--white);
     font-weight: 600;
-    font-size: 1.3em;
+    font-size: 1.2em;
 }
 
 .header .navbar .logo .logoImage{
     width: 80px;
-    height: auto;
     filter: drop-shadow(2px 2px 8px rgba(0,0,0,.2));
 }
-
+/* navLIinks */
 .header .navbar .navLinks{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 2em;
+    gap: 1.5em;
 }
 
 .header .navbar .navLinks .navItem{
-    border: solid 1px transparent;
-    border-radius: 24px;
+    border-radius: 20px;
     padding: 8px 12px;
     background: transparent;
     transition: all ease .3s;
 }
 
 .header .navbar .navLinks .navItem.active{
-    background: var(--orange);
-    border: solid 1px rgba(255,255,255,.5);
-    transition: all ease-in-out .3s;
+    background: rgb(205,17,59);
+    background: linear-gradient(45deg, rgba(205,17,59,1) 0%, rgba(145,10,103,1) 100%); 
 }
 
 .header .navbar .navLinks .navItem .navlink{
     color: var(--white);
     font-size: 16px;
+    font-weight: 400;
+    transition: all ease-in .1s;
+}
+
+/* wrap Menu */
+.navbar .wrapMnenu{
+    /*display: inline-flex;*/
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 95%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    font-size: 16x;
+    border: solid 1px rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    box-shadow: 4px 4px 8px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all ease .3s;
+}
+/* main Section*/
+main{
+    padding: 2em 3em;
+}
+
+.swiperContainer{ /* #home */
+    position: relative;
+    border: solid blue;
+
+}
+ /* cada uno de los items */
+.swiperContainer .swiperItem{
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: calc(15% - 100px);
+}
+
+@keyframes slide {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+
+.swiperContainer .swiperItem.visible{
+    display: flex;
+    animation: slide 1s ease-in;
+}
+
+.swiperContainer .swiperItem .swiperImage{
+    width: 520px;
+}
+.swiperContainer .swiperItem .swiperImage img{
+    width: 100%;
+}
+
+.swiperContainer .swiperItem .swiperText{
+    width:fit-content;
+    color: var(--white);
+}
+
+.swiperContainer .swiperItem .swiperText > span{
+    font-weight: 600;
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 12px;
+}
+.swiperContainer .swiperItem .swiperText > h2{
+    font-weight: 800;
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+.swiperContainer .swiperItem .swiperText > p{
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+.cta{
+    border: none;
+    border-radius: 4px;
+    display: inline-flex;
+    justify-content: space-between;
+    gap: 4px;
+    align-items: center;
+    padding: 12px 16px;
     font-weight: 500;
+    font-size: 16px;
+    transition: all ease .3s;
+}
+
+.swiperText .cta{
+    background: var(--miniGradient);
+    color: var(--white);
+}
+.swiperText .cta:hover{
+    transform: translateX(4px);
+}
+
+/* flechas de desplazamiento */
+.arrow{
+    border: solid transparent;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--fucsia);    
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+main{
+    position: relative;
+    border: solid green;
+}
+
+main .arrows{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border: solid red;
+    display: flex;
+    justify-content: center;
+    gap: calc(9% - 100px);
 }
