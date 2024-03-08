@@ -2,11 +2,12 @@
 
 :root{
     --blue: #030637;
-    --violet: #3C0753;
+    --violet: #3d0754;
     --purple: #720455;
     --fucsia: #CD113B;
     --pink: #910A67;
     --white: #F3F8FF;
+    --yellow: #FFA900;
     --miniGradient: linear-gradient(45deg, rgba(205,17,59,1) 0%, rgba(145,10,103,1) 100%);
     --dropShadow: 2px 2px 8px rgba(0,0,0,.2);
 }
@@ -39,7 +40,12 @@ body{
     left: 0;
     width: 100%;
     z-index: 100;
+    background: transparent;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all ease .6s;
+}
+.header.dark{
+    background: var(--violet);
 }
 
 .header .navbar{
@@ -134,7 +140,7 @@ main{
 
 }
  /* cada uno de los items */
-.swiperContainer .swiperItem{
+.swiperContainer .swiperItem, .aboutContent{
     display: none;
     flex-direction: row;
     justify-content: space-between;
@@ -163,28 +169,29 @@ main{
     width: 100%;
 }
 
-.swiperContainer .swiperItem .swiperText{
+.swiperContainer .swiperItem .sectionText, .aboutText{
     width: fit-content;
     color: var(--white);
 }
 
-.swiperContainer .swiperItem .swiperText > span{
+.sectionSpan{
     font-weight: 600;
     font-size: 18px;
     font-style: italic;
     margin-bottom: 12px;
 }
-.swiperContainer .swiperItem .swiperText > h2{
+.sectionSubtitle{
     font-weight: 800;
     font-size: 38px;
     margin-bottom: 12px;
 }
-.swiperContainer .swiperItem .swiperText > p{
+.sectionParagraph{
     font-size: 20px;
     letter-spacing: 1px;
     font-weight: 400;
     margin-bottom: 12px;
 }
+
 .cta{
     border: none;
     border-radius: 4px;
@@ -198,11 +205,12 @@ main{
     transition: all ease .3s;
 }
 
-.swiperText .cta{
+.sectionText .cta{
     background: var(--miniGradient);
     color: var(--white);
+    transition: all linear .1s;
 }
-.swiperText .cta:hover{
+.sectionText .cta:hover{
     transform: translateX(4px);
 }
 
@@ -227,4 +235,44 @@ main .arrows{
     display: flex;
     justify-content: center;
     gap: calc(9% - 100px);
+}
+
+.section{
+    margin: 2em;
+    padding: 2em;
+    border: solid 1px white;
+}
+
+.sectionTitle{
+    width: 100%;
+    text-align: center;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 36px;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+/* ABOUT SECTION */
+.about .aboutImage{
+    width: 800px;
+}
+
+.aboutContent{
+    display: flex;
+}
+
+.about .aboutImage{
+    animation: infinite resplandor 2s;
+}
+
+@keyframes resplandor{
+    0%{
+        filter: drop-shadow(8px 8px 12px rgba(255, 170, 0, 0.5));
+    }
+    50%{
+        filter: drop-shadow(0 0 0 rgba(255, 170, 0, 0.5));
+    }
+    100%{
+        filter: drop-shadow(8px 8px 12px rgba(255,170,0,0.5));
+    }
 }
