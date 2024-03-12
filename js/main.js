@@ -53,3 +53,62 @@ function prev(){
 
 leftArrow.addEventListener("click", prev);
 rightArrow.addEventListener("click", next);
+
+/* ======= crear los personajes o miembros de equipo */
+
+window.addEventListener("load", crearEquipo);
+
+function crearEquipo() {
+    
+
+    /* declaracion del arreglo que traerá nuestros personajes */
+    let arrayEquipo= [];
+      
+    class PERSONAJE {
+
+    constructor(nombre, foto, descripcion) {
+        this.nombre = nombre;
+        this.foto = foto;
+        this.descripcion = descripcion;
+    }
+
+    }
+
+    let calabaza = new PERSONAJE(
+        "Jack",
+        "../img/pumpkin.png",
+        "El amargado del mes."
+    );
+
+    let hechicero = new PERSONAJE(
+        "GreySkull",
+        "../img/warlock.png",
+        "No Molestar."
+    );
+
+    let momia = new PERSONAJE(
+        "Tut",
+        "../img/momia.png",
+        "Cat's Lover."
+    );
+
+    arrayEquipo.push(calabaza, hechicero, momia);
+
+    let card; 
+    const teamContainer = document.getElementById("teamContainer");
+
+    arrayEquipo.forEach((e) => {
+        
+        card = `
+        <div class="item">
+            <img src=${e.foto} alt="" class="itemImage">
+            <span class="itemName">${e.nombre}</span>
+            <p class="itemParagraph">${e.descripcion}</p>
+        </div>
+        `;
+
+        teamContainer.innerHTML  += card;
+
+        // inyectamos informacion dentro del contenedor:
+    });
+}
