@@ -14,7 +14,6 @@
 html{
     scroll-behavior: smooth;
     user-select: none;
-    overflow-x: hidden;
 }
 
 *{
@@ -31,10 +30,10 @@ body{
     background: rgb(60,7,83);
     background: linear-gradient(90deg, rgba(60,7,83,1) 0%, rgba(114,4,85,1) 75%); 
     color: var(--white);
-    overflow-x: hidden;
     position: relative;
     min-height: 100vh;
     height: 100%;
+    overflow-x: hidden;
 }
 
 a, button{
@@ -129,7 +128,7 @@ a, button{
 }
 /* main Section*/
 main{
-    padding: 2em 3em;
+    padding: 2em 3em 1em 3em;
     width: 100%;
     min-height: 100vh;
     position: relative;
@@ -143,7 +142,6 @@ main{
     position: relative;
     width: 100%;
     min-height: 50vh;
-
 }
  /* cada uno de los items */
 .swiperContainer .swiperItem, .aboutContent{
@@ -169,7 +167,11 @@ main{
 }
 
 .swiperContainer .swiperItem .swiperImage{
-    width: 520px;
+    width: 420px;
+}
+
+.swiperContainer .swiperItem .swiperImage img{
+    width: 100%;
 }
 
 .swiperContainer .swiperItem .sectionText{
@@ -338,8 +340,8 @@ main .arrows{
     margin-bottom: 16px;
 }
 
-.contactForm input{
-    height: 20px;
+.contactForm input,.contactForm textarea{
+    padding: 6px 12px;
 }
 
 .contactForm input, textarea{
@@ -355,20 +357,42 @@ main .arrows{
 
 .contactForm input:focus, textarea:focus{
     opacity: 1;
-    box-shadow: 2px 2px 8px rgba(205, 17, 58, 0.5);
+    box-shadow: 0px 2px 8px rgba(205, 17, 58, 0.5);
 }
 
 .contactForm .cta{
     background: var(--fucsia);
+    transition: all ease .3s;
+}
+.contactForm .cta:hover{
+    background: var(--blue);
 }
 
 
 footer{
     position: relative;
     width: 100vw;
+    height: 160px;
+    background-image: url("../img/wave.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
     border: solid red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 2em 2em 1em 2em;
 }
 
-footer .footerImage{
-    width: 100%;
+.socialMediaIcons{
+    display: flex;
+    gap: 1em;
+    color: #3d0754;
+}
+
+.author{
+    font-size: 18px;
+    font-weight: 500;
+    color: #3d0754;
 }
