@@ -64,9 +64,9 @@ function crearEquipo() {
     /* declaracion del arreglo que traerá nuestros personajes */
     let arrayEquipo= [];
       
-    class PERSONAJE {
+        class PERSONAJE {
 
-    constructor(nombre, foto, descripcion) {
+    constructor(nombre, foto, descripcion) { // clase personaje
         this.nombre = nombre;
         this.foto = foto;
         this.descripcion = descripcion;
@@ -76,28 +76,28 @@ function crearEquipo() {
 
     let calabaza = new PERSONAJE(
         "Jack",
-        "../img/pumpkin.png",
+        "./img/pumpkin.png",
         "El amargado del mes."
     );
 
     let hechicero = new PERSONAJE(
         "GreySkull",
-        "../img/warlock.png",
+        "./img/warlock.png",
         "No Molestar."
     );
 
     let momia = new PERSONAJE(
         "Tut",
-        "../img/momia.png",
+        "./img/momia.png",
         "Cat's Lover."
     );
 
-    arrayEquipo.push(calabaza, hechicero, momia);
+    arrayEquipo.push(calabaza, hechicero, momia); // inyectamos la información de cada uno de los personajes
 
-    let card; 
-    const teamContainer = document.getElementById("teamContainer");
+    let card;  // este es el elemento que guardará las tarjetas
+    const teamContainer = document.getElementById("teamContainer"); // class .itemContainer
 
-    arrayEquipo.forEach((e) => {
+    arrayEquipo.forEach((e) => { // por cada uno de los elementos de nuestro arreglo html se creará una tarjeta.
         
         card = `
         <div class="item">

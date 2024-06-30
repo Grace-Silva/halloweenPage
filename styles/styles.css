@@ -14,6 +14,7 @@
 html{
     scroll-behavior: smooth;
     user-select: none;
+    overflow-x: hidden;
 }
 
 *{
@@ -23,7 +24,7 @@ html{
     font-family: "Montserrat", sans-serif;
     text-decoration: none;
     list-style: none;
-    outline: none;
+    outline: none; /* anula el efecto de selección de los campos de entrada.*/
 }
 
 body{
@@ -33,12 +34,10 @@ body{
     position: relative;
     min-height: 100vh;
     height: 100%;
-    overflow-x: hidden;
 }
 
-a, button{
+a, button, span{
     color: var(--white);
-    font-size: 1.2em;
 }
 
 .header{
@@ -104,7 +103,7 @@ a, button{
 
 .header .navbar .navLinks .navItem .navlink{
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 /* wrap Menu */
@@ -152,6 +151,12 @@ main{
     gap: calc(15% - 100px);
 }
 
+/* esta clase se activa solo para el primer elemento*/
+.swiperContainer .swiperItem.visible{
+    display: flex;
+    animation: slide 1s ease-in;
+}
+
 @keyframes slide {
     from {
       transform: translateX(100%);
@@ -161,10 +166,6 @@ main{
     }
   }
 
-.swiperContainer .swiperItem.visible{
-    display: flex;
-    animation: slide 1s ease-in;
-}
 
 .swiperContainer .swiperItem .swiperImage{
     width: 420px;
@@ -193,12 +194,14 @@ main{
 .sectionParagraph{
     font-size: 20px;
     letter-spacing: 1px;
-    font-weight: 400;
+    font-weight: 300;
     margin-bottom: 12px;
 }
 
 .cta{
     border: none;
+    background: var(--miniGradient);
+    border: solid .5px var(--fucsia);
     border-radius: 4px;
     display: inline-flex;
     justify-content: space-between;
@@ -208,15 +211,11 @@ main{
     font-weight: 500;
     font-size: 16px;
     cursor: pointer;
+    opacity: .8;
     transition: all ease .3s;
 }
-
-.sectionText .cta{
-    background: var(--miniGradient);
-    transition: all linear .1s;
-}
-.sectionText .cta:hover{
-    transform: translateX(4px);
+.cta:hover{
+    opacity: 1;
 }
 
 /* flechas de desplazamiento */
@@ -249,9 +248,8 @@ main .arrows{
 .sectionTitle{
     width: 100%;
     text-align: center;
-    color: var(--white);
     font-weight: 600;
-    font-size: 36px;
+    font-size: 32px;
     margin-bottom: 12px;
 }
 
@@ -262,14 +260,12 @@ main .arrows{
 
 .aboutContent{
     display: flex;
+    padding: 1em;
 }
 
-.aboutContent .aboutText{
-    text-align: center;
-}
 
 .about .aboutImage{
-    animation: infinite resplandor 2s;
+    animation: infinite resplandor 3s;
 }
 
 @keyframes resplandor{
@@ -284,7 +280,7 @@ main .arrows{
     }
 }
 
-.itemsContainer{
+.itemsContainer{ /* contenedor de los personajes */
     display: grid;
     grid-template-columns: repeat(3, calc(100% / 3 - 100px));
     grid-template-rows: 1fr;
@@ -294,7 +290,7 @@ main .arrows{
     padding: 2em;
 }
 
-.item{
+.item{ /* cada una de las tarjetas de nuestros personajes */
     padding: 1em;
     display: flex;
     flex-direction: column;
@@ -357,17 +353,7 @@ main .arrows{
 
 .contactForm input:focus, textarea:focus{
     opacity: 1;
-    box-shadow: 0px 2px 8px rgba(205, 17, 58, 0.5);
 }
-
-.contactForm .cta{
-    background: var(--fucsia);
-    transition: all ease .3s;
-}
-.contactForm .cta:hover{
-    background: var(--blue);
-}
-
 
 footer{
     position: relative;
@@ -377,22 +363,28 @@ footer{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
-    border: solid red;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     padding: 2em 2em 1em 2em;
 }
 
 .socialMediaIcons{
     display: flex;
-    gap: 1em;
-    color: #3d0754;
+    gap: 3em;
+    margin-bottom: 16px;
 }
 
-.author{
-    font-size: 18px;
-    font-weight: 500;
-    color: #3d0754;
+.socialMediaIcons a>i{
+    font-size: 1.2em;
 }
+
+.socialMediaIcons a{
+    transition: all ease-in-out .3s;
+}
+.socialMediaIcons a:hover{
+    transform: scale(1.1);
+}
+
+
