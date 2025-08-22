@@ -93,7 +93,7 @@ a, button, span{
     border-radius: 20px;
     padding: 8px 12px;
     background: transparent;
-    transition: all ease .3s;
+    transition: all ease-in-out .3s;
 }
 
 .header .navbar .navLinks .navItem.active{
@@ -194,6 +194,7 @@ main{
 .sectionParagraph{
     font-size: 20px;
     letter-spacing: 1px;
+    line-height: 1.2;
     font-weight: 300;
     margin-bottom: 12px;
 }
@@ -237,11 +238,11 @@ main .arrows{
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: calc(9% - 100px);
+    gap: calc(2%);
 }
 
 .section{
-    margin: 2em;
+    margin: 3em;
     padding: 2em;
 }
 
@@ -264,34 +265,26 @@ main .arrows{
 }
 
 
-.about .aboutImage{
-    animation: infinite resplandor 3s;
+.aboutImage {
+    animation: infinite resplandor 2s;
 }
 
-@keyframes resplandor{
-    0%{
-        filter: drop-shadow(8px 8px 12px rgba(255, 170, 0, 0.5));
-    }
-    50%{
-        filter: drop-shadow(0 0 0 rgba(255, 170, 0, 0.5));
-    }
-    100%{
-        filter: drop-shadow(8px 8px 12px rgba(255,170,0,0.5));
-    }
+@keyframes resplandor {
+    0% { filter: drop-shadow(0 0 4px rgba(255,170,0,0.8)); }
+    50% { filter: drop-shadow(0 0 16px rgba(255,170,0,0.9)); }
+    100% { filter: drop-shadow(0 0 4px rgba(255,170,0,0.8)); }
 }
 
 .itemsContainer{ /* contenedor de los personajes */
     display: grid;
     grid-template-columns: repeat(3, calc(100% / 3 - 100px));
     grid-template-rows: 1fr;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 2em;
-    padding: 2em;
+    justify-content: center;
+    gap: 2.2em;
 }
 
 .item{ /* cada una de las tarjetas de nuestros personajes */
-    padding: 1em;
+    padding: .5em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -301,10 +294,11 @@ main .arrows{
     border-radius: 6px;
     box-shadow: 2px 2px 8px rgba(0,0,0,.1);
     text-align: center;
+    min-width: auto;
 }
 
 .itemImage{
-    max-width: 230px;
+    width: 240px;
 }
 
 .itemName{
@@ -349,10 +343,15 @@ main .arrows{
     font-size: 16px;
     opacity: .5;
     transition: all ease .3s;
+    position: relative;
 }
 
 .contactForm input:focus, textarea:focus{
     opacity: 1;
+}
+
+textarea{
+    resize: none;
 }
 
 footer{
@@ -388,3 +387,31 @@ footer{
 }
 
 
+/* responsive design */
+@media(max-width: 1300px){
+
+    .swiperContainer{
+        padding: 2em;
+    }
+
+    .swiperContainer .swiperItem .swiperImage{
+        width: 360px;
+    }
+
+    .about .aboutImage{
+        width: 600px;
+    }
+}
+
+/* laptop */
+@media (max-width: 1060px) {
+    
+    .sectionParagraph{
+        font-size: 18px;
+    }
+
+    .itemsContainer{
+        justify-content: space-evenly;
+        gap: 0;
+    }
+}
